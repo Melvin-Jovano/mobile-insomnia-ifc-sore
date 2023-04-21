@@ -11,6 +11,8 @@ class HomePage extends StatefulWidget {
 
 class HomePageState extends State<HomePage> {
 
+  var subjectsList = subjects;
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -35,12 +37,19 @@ class HomePageState extends State<HomePage> {
             ),
             child: ListView(
               children: [
-                const TextField(
-                  style: TextStyle(
+                TextField(
+                  onChanged: (val) {
+                    setState(() {
+                      subjectsList = subjects.where(
+                        (i) => i.title.toLowerCase().contains(val.toLowerCase()) || i.week.toLowerCase().contains(val.toLowerCase())
+                      ).toList();
+                    });
+                  },
+                  style: const TextStyle(
                     color: Colors.white
                   ),
-                  decoration: InputDecoration(
-                    hintText: 'Cari materi',
+                  decoration: const InputDecoration(
+                    hintText: 'Cari minggu / materi',
                     fillColor: Colors.white12,
                     filled: true,
                     contentPadding: EdgeInsets.fromLTRB(25, 0, 0, 0),
@@ -80,18 +89,20 @@ class HomePageState extends State<HomePage> {
                         height: MediaQuery.of(context).size.height * 0.63,
                         child: SingleChildScrollView(
                           child: Column(
-                            children: [
-                              for (int i = 0; i < subjects.length; i++)
+                            children: [ 
+                              for (int i = 0; i < subjectsList.length; i++)
                                 Column(
                                   children: [
                                     InkWell(
-                                      onTap:()=>{
-                                        Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context)=> subjects[i].link
-                                          )
-                                        )
+                                      onTap: () {
+                                        if(subjectsList[i].cb != null) {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) => subjectsList[i].cb!() as Widget
+                                            )   
+                                          );
+                                        }
                                       },
                                       child: Container(
                                         width: double.infinity,
@@ -107,14 +118,16 @@ class HomePageState extends State<HomePage> {
                                         child: Column(
                                           crossAxisAlignment: CrossAxisAlignment.start,
                                           children: [
-                                            Text(subjects[i].week, style: const TextStyle(
+                                            Text(subjectsList[i].week, style: const TextStyle(
                                               fontSize: 18,
                                               fontWeight: FontWeight.bold,
+                                              decoration: TextDecoration.underline,
                                               color: Colors.white
                                             ),),
                                             const SizedBox(height: 10,),
-                                            Text(subjects[i].title, style: const TextStyle(
-                                              color: Colors.white
+                                            Text(subjectsList[i].title, style: const TextStyle(
+                                              color: Colors.white,
+                                              fontStyle: FontStyle.italic
                                             )),
                                           ],
                                         ),

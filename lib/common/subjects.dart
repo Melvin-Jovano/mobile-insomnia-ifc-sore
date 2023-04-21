@@ -1,12 +1,12 @@
 import 'package:insomnia/pages/minggu1.dart';
 
 class Subject {
-  dynamic link;
+  void Function()? cb;
   String week;
   String title;
 
   Subject({
-    required this.link,
+    this.cb,
     required this.week,
     required this.title,
   });
@@ -14,33 +14,32 @@ class Subject {
 
 final List<Subject> subjects = [
   Subject(
-    link: MingguSatu(),
+    cb: () => const MingguSatu(),
     week: 'Minggu 1',
-    title: 'Materi 1'
+    title: 'Instalasi, Flutter widget (statefull, stateless), scaffold, text, icon, image'
   ),
   Subject(
-    link: '',
     week: 'Minggu 2',
-    title: 'Materi 2'
+    title: 'Grid, Column, Row, Container dan Navigator'
   ),
   Subject(
-    link: '',
     week: 'Minggu 3',
-    title: 'Materi 3'
+    title: 'Button & Textfield'
   ),
   Subject(
-    link: '',
     week: 'Minggu 4',
-    title: 'Materi 4'
+    title: 'setState vs Provider'
   ),
   Subject(
-    link: '',
     week: 'Minggu 5',
-    title: 'Materi 5'
+    title: 'CheckBox, RadioButtons, Chips'
   ),
   Subject(
-    link: '',
     week: 'Minggu 6',
-    title: 'Materi 6'
+    title: 'Switches dan Dropdown Buttons'
+  ),
+  Subject(
+    week: 'Minggu 7',
+    title: 'AppBars, FAB dan ButtonNavigation'
   ),
 ];
