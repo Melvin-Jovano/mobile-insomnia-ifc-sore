@@ -1,5 +1,7 @@
+import 'package:insomnia/pages/minggu1.dart';
+
 class Subject {
-  String link;
+  dynamic link;
   String week;
   String title;
 
@@ -12,7 +14,7 @@ class Subject {
 
 final List<Subject> subjects = [
   Subject(
-    link: '',
+    link: MingguSatu(),
     week: 'Minggu 1',
     title: 'Materi 1'
   ),

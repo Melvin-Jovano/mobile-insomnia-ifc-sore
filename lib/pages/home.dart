@@ -85,7 +85,14 @@ class HomePageState extends State<HomePage> {
                                 Column(
                                   children: [
                                     InkWell(
-                                      onTap: null,
+                                      onTap:()=>{
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context)=> subjects[i].link
+                                          )
+                                        )
+                                      },
                                       child: Container(
                                         width: double.infinity,
                                         decoration: BoxDecoration(
