@@ -1,4 +1,5 @@
 import 'package:insomnia/pages/minggu1.dart';
+import 'package:insomnia/pages/minggu2.dart';
 
 class Subject {
   void Function()? cb;
@@ -19,6 +20,7 @@ final List<Subject> subjects = [
     title: 'Instalasi, Flutter widget (statefull, stateless), scaffold, text, icon, image'
   ),
   Subject(
+    cb: () => const MingguDua(),
     week: 'Minggu 2',
     title: 'Grid, Column, Row, Container dan Navigator'
   ),
