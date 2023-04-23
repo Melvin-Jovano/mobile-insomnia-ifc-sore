@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:insomnia/common/subjects.dart';
 
-class MingguSatu extends StatefulWidget {
+class MingguSatu extends StatelessWidget {
   const MingguSatu({super.key});
 
-  @override
-  State<MingguSatu> createState() => _MingguSatuState();
-}
-
-class _MingguSatuState extends State<MingguSatu> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -44,10 +40,10 @@ class _MingguSatuState extends State<MingguSatu> {
                     color: Colors.white12,
                     borderRadius: BorderRadius.circular(10)
                   ),
-                  child: const Text(
-                    "Materi 1\nText, Icon, and Image",
+                  child: Text(
+                    "${subjects[0].week}\n${subjects[0].title}",
                     textAlign: TextAlign.center,
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: Colors.white,
                       fontSize: 30,
                       fontWeight: FontWeight.bold,
