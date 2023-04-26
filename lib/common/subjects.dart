@@ -1,5 +1,6 @@
 import 'package:insomnia/pages/minggu1.dart';
 import 'package:insomnia/pages/minggu2.dart';
+import 'package:insomnia/pages/minggu4.dart';
 
 class Subject {
   void Function()? cb;
@@ -29,6 +30,7 @@ final List<Subject> subjects = [
     title: 'Button & Textfield'
   ),
   Subject(
+    cb: () => const MingguEmpat(),
     week: 'Minggu 4',
     title: 'setState vs Provider'
   ),
