@@ -88,7 +88,7 @@ class _MingguEmpatState extends State<MingguEmpat> {
                     onPressed: ()=>{
                       Navigator.pop(context)
                     },
-                    backgroundColor: Colors.white12,
+                    backgroundColor: Colors.black26,
                     child: const Icon(Icons.arrow_back_ios_new),
                   ),
                 ),
@@ -98,7 +98,7 @@ class _MingguEmpatState extends State<MingguEmpat> {
                   padding: const EdgeInsets.all(10),
                   margin: const EdgeInsets.only(right: 25, left: 25, top: 20, bottom: 20),
                   decoration: BoxDecoration(
-                    color: Colors.white12,
+                    color: Colors.black26,
                     borderRadius: BorderRadius.circular(10)
                   ),
                   child: Text(
@@ -117,7 +117,7 @@ class _MingguEmpatState extends State<MingguEmpat> {
                   padding: const EdgeInsets.all(10),
                   margin: const EdgeInsets.only(right: 25, left: 25, bottom: 25),
                   decoration: BoxDecoration(
-                    color: Colors.white12,
+                    color: Colors.black26,
                     borderRadius: BorderRadius.circular(10)
                   ),
                   child: Column(
@@ -139,6 +139,9 @@ class _MingguEmpatState extends State<MingguEmpat> {
                         children: [
                           Expanded(
                             child: TextField(
+                              style: const TextStyle(
+                                color: Colors.white
+                              ),
                               controller: titleController,
                               decoration: InputDecoration(
                                 enabledBorder: const OutlineInputBorder(
@@ -192,6 +195,9 @@ class _MingguEmpatState extends State<MingguEmpat> {
                         children: [
                           Expanded(
                             child: TextField(
+                              style: const TextStyle(
+                                color: Colors.white
+                              ),
                               controller: descriptionController,
                               decoration: InputDecoration(
                                 enabledBorder: const OutlineInputBorder(
@@ -261,6 +267,9 @@ class _MingguEmpatState extends State<MingguEmpat> {
                           SizedBox(
                             width: 100,
                             child: TextField(
+                              style: const TextStyle(
+                                color: Colors.white
+                              ),
                               controller: stockController,
                               decoration: InputDecoration(
                                 enabledBorder: const UnderlineInputBorder(

@@ -34,7 +34,7 @@ class _MingguEmpatListState extends State<MingguEmpatList> {
                     onPressed: ()=>{
                       Navigator.pop(context)
                     },
-                    backgroundColor: Colors.white12,
+                    backgroundColor: Colors.black26,
                     child: const Icon(Icons.arrow_back_ios_new),
                   ),
                 ),
@@ -44,7 +44,7 @@ class _MingguEmpatListState extends State<MingguEmpatList> {
                   padding: const EdgeInsets.all(10),
                   margin: const EdgeInsets.only(right: 25, left: 25, top: 20),
                   decoration: BoxDecoration(
-                    color: Colors.white12,
+                    color: Colors.black26,
                     borderRadius: BorderRadius.circular(10)
                   ),
                   child: const Text(
@@ -63,7 +63,7 @@ class _MingguEmpatListState extends State<MingguEmpatList> {
                   padding: const EdgeInsets.all(10),
                   margin: const EdgeInsets.only(right: 25, left: 25, top: 15, bottom: 20),
                   decoration: BoxDecoration(
-                    color: Colors.white12,
+                    color: Colors.black26,
                     borderRadius: BorderRadius.circular(10)
                   ),
                   child: Column(
@@ -74,7 +74,7 @@ class _MingguEmpatListState extends State<MingguEmpatList> {
                             width: double.infinity,
                             margin: const EdgeInsets.all(10),
                             decoration: BoxDecoration(
-                              color: Colors.white30,
+                              color: Colors.black26,
                               borderRadius: BorderRadius.circular(10)
                             ),
                             child: Row(
@@ -84,7 +84,7 @@ class _MingguEmpatListState extends State<MingguEmpatList> {
                                     decoration: const BoxDecoration(
                                       border: Border(
                                         right: BorderSide(
-                                          color: Colors.white24
+                                          color: Colors.black12
                                         )
                                       )
                                     ),

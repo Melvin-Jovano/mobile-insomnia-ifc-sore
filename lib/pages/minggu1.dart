@@ -27,7 +27,7 @@ class MingguSatu extends StatelessWidget {
                     onPressed: ()=>{
                       Navigator.pop(context)
                     },
-                    backgroundColor: Colors.white12,
+                    backgroundColor: Colors.black26,
                     child: const Icon(Icons.arrow_back_ios_new),
                   ),
                 ),
@@ -37,7 +37,7 @@ class MingguSatu extends StatelessWidget {
                   padding: const EdgeInsets.all(10),
                   margin: const EdgeInsets.only(right: 25, left: 25, top: 20, bottom: 20),
                   decoration: BoxDecoration(
-                    color: Colors.white12,
+                    color: Colors.black26,
                     borderRadius: BorderRadius.circular(10)
                   ),
                   child: Text(
@@ -56,7 +56,7 @@ class MingguSatu extends StatelessWidget {
                   padding: const EdgeInsets.all(10),
                   margin: const EdgeInsets.only(right: 25, left: 25, bottom: 25),
                   decoration: BoxDecoration(
-                    color: Colors.white12,
+                    color: Colors.black26,
                     borderRadius: BorderRadius.circular(10)
                   ),
                   child: Column(
