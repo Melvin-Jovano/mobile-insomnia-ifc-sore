@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:insomnia/pages/home.dart';
 import 'package:insomnia/pages/minggu4provider.dart';
+import 'package:insomnia/pages/minggu7provider.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -15,6 +16,9 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(
           create: (context) => MingguEmpatProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => MingguTujuhProvider()
         )
       ],
       child: MaterialApp(
