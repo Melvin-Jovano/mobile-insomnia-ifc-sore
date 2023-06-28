@@ -4,6 +4,7 @@ import 'package:insomnia/pages/minggu4.dart';
 import 'package:insomnia/pages/minggu6.dart';
 import 'package:insomnia/pages/minggu7.dart';
 import 'package:insomnia/pages/minggu8.dart';
+import 'package:insomnia/pages/minggu9.dart';
 
 class Subject {
   void Function()? cb;
@@ -54,5 +55,11 @@ final List<Subject> subjects = [
   Subject(
     cb: () => const MingguDelapan(),
     week: 'Minggu 8', 
-    title: 'Navigation Drawer, Tabs bar, Sheets:Button')
+    title: 'Navigation Drawer, Tabs bar, Sheets:Button'
+  ),
+  Subject(
+    cb: () => const MingguSembilan(),
+    week: 'Minggu 9', 
+    title: 'Banners, Dialog, dan Snackbars'
+  )
 ];
