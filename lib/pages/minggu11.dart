@@ -83,7 +83,7 @@ class _MingguSebelasState extends State<MingguSebelas> {
                 child: Column(
                   children: const [
                     SizedBox(height: 30,),
-                    Icon(Icons.warning),
+                    Icon(Icons.warning, color: Colors.white),
                     SizedBox(height: 10,),
                     Text('Data tak ditemukan',
                      style: TextStyle(color: Colors.white),),
