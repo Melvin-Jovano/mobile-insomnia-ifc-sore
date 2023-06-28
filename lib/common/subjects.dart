@@ -1,5 +1,6 @@
 import 'package:insomnia/pages/minggu1.dart';
 import 'package:insomnia/pages/minggu11.dart';
+import 'package:insomnia/pages/minggu12.dart';
 import 'package:insomnia/pages/minggu2.dart';
 import 'package:insomnia/pages/minggu4.dart';
 import 'package:insomnia/pages/minggu6.dart';
@@ -67,5 +68,10 @@ final List<Subject> subjects = [
     cb: () => const MingguSebelas(),
     week: 'Minggu 11', 
     title: 'Menus, Lists and Dividers'
+  ),
+  Subject(
+    cb: () => const MingguDuabelas(),
+    week: 'Minggu 12', 
+    title: 'Card dan ListTile'
   )
 ];
