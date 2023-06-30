@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:insomnia/common/subjects.dart';
-import 'package:insomnia/pages/minggu9provider.dart';
-import 'package:provider/provider.dart';
 
 class MingguSembilan extends StatefulWidget {
   const MingguSembilan({super.key});
@@ -13,203 +11,229 @@ class MingguSembilan extends StatefulWidget {
 class _MingguSembilanState extends State<MingguSembilan> {
   @override
   Widget build(BuildContext context) {
-    final prov = Provider.of<MingguSembilanProvider>(context);
     return SafeArea(
-      child: Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          backgroundColor: const Color(0xff001f2e),
-          title: Text(subjects[8].week),
-          leading: IconButton(
-            icon: const Icon(Icons.arrow_back_ios_new),
-            onPressed: () {
-              ScaffoldMessenger.of(context).hideCurrentMaterialBanner();
-              Navigator.pop(context);
-            },
-          ),
-        ),
-        body: Container(
-          height: double.infinity,
-          width: double.infinity,
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage("assets/img/wallpaper.png"),
-              fit: BoxFit.cover
-            )
-          ),
-          child: Column(
-            children: [
-              Container(
-                width: double.infinity,
-                padding: const EdgeInsets.all(10),
-                margin: const EdgeInsets.only(right: 25, left: 25, top: 20, bottom: 5),
-                decoration: BoxDecoration(
-                  color: Colors.black26,
-                  borderRadius: BorderRadius.circular(10)
-                ),
-                child: Text(
-                  "${subjects[8].week}\n${subjects[8].title}",
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
+      child: DefaultTabController(
+        length: 3,
+        child: Scaffold(
+          appBar: AppBar(
+            leading: IconButton(
+              icon: const Icon(Icons.arrow_back_ios),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+            ),
+            centerTitle: true,
+            title: Text(
+              subjects[7].week,
+              style: const TextStyle(
+                fontFamily: "Gaegu",
+                fontSize: 30,
+                fontWeight: FontWeight.bold
               ),
-
-              Container(
-                width: double.infinity,
-                padding: const EdgeInsets.all(10),
-                margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 25),
-                decoration: BoxDecoration(
-                  color: Colors.black26,
-                  borderRadius: BorderRadius.circular(10)
-                ),
-                child: Material(
-                  color: Colors.transparent,
-                  child: ListTile(
-                    onTap: () {
-                      prov.setInitial = prov.choosenRingtone;
-                      showDialog(
-                        context: context, 
-                        builder: (context) => showAlertDialog(context));
-                    },
-                    tileColor: Colors.black12,
-                    title: const Text(
-                      "Ringtones",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 24
-                      ),
-                    ),
-                    subtitle: Text(
-                      prov.savedRingtone,
-                      style: const TextStyle(
-                        color: Colors.white70,
-                        fontSize: 18
-                      ),
+            ),
+            backgroundColor: const Color(0xff001f2e),
+            bottom: const TabBar(
+              isScrollable: true,
+              tabs: [
+                Tab(
+                  child: Text(
+                    "Music",
+                    style: TextStyle(
+                      fontFamily: "Gaegu",
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold
                     ),
                   ),
-                )
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
-  showAlertDialog(BuildContext context){
-    final prov = Provider.of<MingguSembilanProvider>(context);
-    return AlertDialog(
-      backgroundColor: Colors.black54,
-      insetPadding: const EdgeInsets.symmetric(vertical: 150, horizontal: 50),
-      title: const Text(
-        "Phone Ringtone",
-        style: TextStyle(
-          color: Colors.white
-        ),
-      ),
-      content: SizedBox(
-        width: double.maxFinite,
-        child: ListView(
-          shrinkWrap: true,
-          children: List.generate(
-            prov.ringtones.length, 
-            (index) {
-              var ring = prov.ringtones;
-              return RadioListTile(
-                value: ring[index], 
-                groupValue: prov.choosenRingtone, 
-                onChanged: (val){
-                  prov.setTemp = val;
-                },
-                title: Text(
-                  ring[index],
-                  style: const TextStyle(
-                    color: Colors.white
+                ),
+                Tab(
+                  child: Text(
+                    "Favorite",
+                    style: TextStyle(
+                      fontFamily: "Gaegu",
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold
+                    ),
                   ),
                 ),
-              );
-            }
+                Tab(
+                  child: Text(
+                    "Saved",
+                    style: TextStyle(
+                      fontFamily: "Gaegu",
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          body: Container(
+            height: double.infinity,
+            width: double.infinity,
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage("assets/img/wallpaper.png"),
+                fit: BoxFit.cover
+              )
+            ),
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  Container(
+                    width: double.infinity,
+                    height: 500,
+                    padding: const EdgeInsets.all(10),
+                    margin: const EdgeInsets.only(right: 25, left: 25, top: 20, bottom: 20),
+                    decoration: BoxDecoration(
+                      color: Colors.black26,
+                      borderRadius: BorderRadius.circular(10)
+                    ),
+                    child: TabBarView(
+                      children: [
+                        buttonSheets(context),
+                        TextButton(
+                            onPressed: () {
+                              
+                            },
+                            child: const Text(
+                              "Favorite",
+                              style: TextStyle(
+                                fontSize: 20,
+                                color: Colors.white
+                              ),
+                            )
+                          ),
+                        TextButton(
+                            onPressed: () {
+                              
+                            },
+                            child: const Text(
+                              "Saved",
+                              style: TextStyle(
+                                fontSize: 20,
+                                color: Colors.white
+                              ),
+                            )
+                          ),
+                      ],
+                    )
+                  ),
+                ],
+              ),
+            ),
+          ),
+          endDrawer: Drawer(
+            child: ListView(
+              children: [
+                DrawerHeader(
+                  decoration: const BoxDecoration(color: Color(0xff001f2e)),
+                  padding: const EdgeInsets.all(15),
+                  child: Row(
+                    children: [
+                      const CircleAvatar(
+                        radius: 30,
+                        backgroundImage: NetworkImage(
+                          "https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1331&q=80"
+                        ),
+                      ),
+                      const Padding(padding: EdgeInsets.only(left: 10)),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: const [
+                          Text(
+                            "John Doe",
+                            style: TextStyle(
+                                color: Colors.white, fontWeight: FontWeight.bold),
+                          ),
+                          Text("johndoe@gmail.com",
+                              style: TextStyle(color: Colors.white, fontSize: 12))
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                ListTile(
+                  onTap: () => {},
+                  title: const Text("Inbox"),
+                  leading: const Icon(Icons.inbox),
+                  trailing: const Icon(Icons.keyboard_arrow_right_outlined),
+                ),
+                ListTile(
+                  onTap: () => {},
+                  title: const Text("Archived"),
+                  leading: const Icon(Icons.save),
+                  trailing: const Icon(Icons.keyboard_arrow_right_outlined),
+                ),
+                ListTile(
+                  onTap: () => {},
+                  title: const Text("About Us"),
+                  leading: const Icon(Icons.info_outline),
+                  trailing: const Icon(Icons.keyboard_arrow_right_outlined),
+                ),
+              ],
+            ),
           ),
         ),
-      ),
-      actions: [
-        TextButton(
-          onPressed: (){
-            Navigator.pop(context);
-          }, 
-          child: const Text(
-            "Cancel",
-            style: TextStyle(
-              fontSize: 18
-            ),
-          )
-        ),
-        TextButton(
-          onPressed: (){
-            ScaffoldMessenger.of(context)
-            ..removeCurrentMaterialBanner()
-            ..showMaterialBanner(showBanner(context));
-            Navigator.pop(context);
-          }, 
-          child: const Text(
-            "Confirm",
-            style: TextStyle(
-              fontSize: 18
-            ),
-          )
-        ),
-      ],
+      )
     );
   }
-
-  showBanner(BuildContext global){
-    final prov = Provider.of<MingguSembilanProvider>(context, listen: false);
-    return MaterialBanner(
-      content: Text(
-        "Update ringtone to ${prov.choosenRingtone} ?",
-        style: const TextStyle(
-          fontSize: 20
+  buttonSheets(BuildContext context) {
+    return Builder(builder: ((context) {
+      return Center(
+        child: TextButton(
+          onPressed: () {
+            showBottomSheet(
+                enableDrag: true,
+                context: context,
+                builder: ((context) {
+                  return Wrap(
+                    children: [
+                      ListTile(
+                        title: const Text(
+                          "Social Media",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 17,
+                              color: Colors.white),
+                        ),
+                        tileColor: const Color(0xff001f2e),
+                        trailing: IconButton(
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          icon: const Icon(
+                            Icons.close,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                      ListTile(
+                        onTap: () => {},
+                        title: const Text("Facebook"),
+                      ),
+                      ListTile(
+                        onTap: () => {},
+                        title: const Text("Twitter"),
+                      ),
+                      ListTile(
+                        onTap: () => {},
+                        title: const Text("Instagram"),
+                      ),
+                    ],
+                  );
+                }));
+          },
+          child: const Text(
+            "Click Me !", 
+            style: TextStyle(
+              fontSize: 20,
+              color: Colors.white
+            ),
+          ),
         ),
-      ), 
-      actions: [
-        TextButton(
-          onPressed: (){
-            prov.setSaved = prov.choosenRingtone;
-            ScaffoldMessenger.of(context).showSnackBar(showSnackBar(global));
-            ScaffoldMessenger.of(context).hideCurrentMaterialBanner();
-          }, 
-          child: const Text("Update")
-        ),
-        TextButton(
-          onPressed: (){
-            ScaffoldMessenger.of(context).hideCurrentMaterialBanner();
-          }, 
-          child: const Text("Dismiss")
-        )
-      ],
-      leading: const Icon(
-        Icons.music_note,
-      ),
-    );
-  }
-
-  showSnackBar(BuildContext global){
-    final prov = Provider.of<MingguSembilanProvider>(context, listen: false);
-    return SnackBar(
-      behavior: SnackBarBehavior.floating,
-      duration: const Duration(seconds: 6),
-      content: Text(
-        "Ringtone ${prov.choosenRingtone} has been applied !"
-      ),
-      action: SnackBarAction(
-        label: "Dismiss",
-        textColor: Colors.white,
-        onPressed: ()=> ScaffoldMessenger.of(context).removeCurrentSnackBar(),
-      ),
-    );
+      );
+    }));
   }
 }

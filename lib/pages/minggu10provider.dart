@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class MingguSembilanProvider extends ChangeNotifier{
+class MingguSepuluhProvider extends ChangeNotifier{
   final List _ringtones = [
     "None",
     "Callisto",

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:insomnia/pages/home.dart';
 import 'package:insomnia/pages/minggu4provider.dart';
 import 'package:insomnia/pages/minggu7provider.dart';
-import 'package:insomnia/pages/minggu9provider.dart';
+import 'package:insomnia/pages/minggu10provider.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
           create: (context) => MingguTujuhProvider()
         ),
         ChangeNotifierProvider(
-          create: (context) => MingguSembilanProvider()
+          create: (context) => MingguSepuluhProvider()
         )
       ],
       child: MaterialApp(
