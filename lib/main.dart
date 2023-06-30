@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:insomnia/pages/home.dart';
+import 'package:insomnia/pages/minggu13provider.dart';
 import 'package:insomnia/pages/minggu4provider.dart';
 import 'package:insomnia/pages/minggu7provider.dart';
 import 'package:insomnia/pages/minggu10provider.dart';
@@ -23,12 +24,18 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider(
           create: (context) => MingguSepuluhProvider()
+        ),
+        ChangeNotifierProvider(
+          create: (context) => MingguTigaBelasProvider()
         )
       ],
       child: MaterialApp(
         title: 'Flutter Demo',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
+          sliderTheme: const SliderThemeData(
+            showValueIndicator: ShowValueIndicator.always
+          ),
           textTheme: const TextTheme(
             bodyMedium: TextStyle(
               fontFamily: 'Gaegu',
