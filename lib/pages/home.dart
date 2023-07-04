@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:insomnia/common/subjects.dart';
+import 'package:insomnia/common/utils/format_date.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key, required this.title});
@@ -10,8 +11,8 @@ class HomePage extends StatefulWidget {
 }
 
 class HomePageState extends State<HomePage> {
-
   var subjectsList = subjects;
+  int gridView = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +26,7 @@ class HomePageState extends State<HomePage> {
           body: Container(
             padding: const EdgeInsets.symmetric(
               vertical: 30,
-              horizontal: 30
+              horizontal: 15
             ),
             height: double.infinity,
             width: double.infinity,
@@ -69,8 +70,8 @@ class HomePageState extends State<HomePage> {
                 const SizedBox(height: 30,),
                 Container(
                   padding: const EdgeInsetsDirectional.symmetric(
-                    vertical: 20,
-                    horizontal: 30
+                    vertical: 15,
+                    horizontal: 20
                   ),
                   decoration: const BoxDecoration(
                     color: Colors.white12,
@@ -79,65 +80,174 @@ class HomePageState extends State<HomePage> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text('List materi', style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 22,
-                        fontWeight: FontWeight.bold
-                      ),),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          const Text('List materi', style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 22,
+                            fontWeight: FontWeight.bold
+                          ),),
+                          PopupMenuButton(
+                            itemBuilder: (context) => [
+                              PopupMenuItem(
+                                child: const Text('1 Grid'),
+                                onTap: () {
+                                    setState(() {
+                                      gridView = 1;
+                                    });
+                                },
+                              ),
+                              PopupMenuItem(
+                                child: const Text('2 Grid'),
+                                onTap: () {
+                                  setState(() {
+                                    gridView = 2;
+                                  });
+                                },
+                              ),
+                            ],
+                            child: const Icon(Icons.grid_view_rounded, color: Colors.white)
+                          )
+                        ],
+                      ),
                       const SizedBox(height: 20,),
                       SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.63,
-                        child: SingleChildScrollView(
-                          child: Column(
-                            children: [ 
-                              for (int i = 0; i < subjectsList.length; i++)
-                                Column(
-                                  children: [
-                                    InkWell(
-                                      onTap: () {
-                                        if(subjectsList[i].cb != null) {
-                                          Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                              builder: (context) => subjectsList[i].cb!() as Widget
-                                            )   
-                                          );
-                                        }
-                                      },
-                                      child: Container(
-                                        width: double.infinity,
-                                        decoration: BoxDecoration(
-                                          color: Colors.white24,
-                                          border: Border.all(color: Colors.white, width: 1),
-                                          borderRadius: const BorderRadius.all(Radius.circular(20))
-                                        ),
-                                        padding: const EdgeInsets.symmetric(
-                                          vertical: 10,
-                                          horizontal: 20
-                                        ),
-                                        child: Column(
-                                          crossAxisAlignment: CrossAxisAlignment.start,
-                                          children: [
-                                            Text(subjectsList[i].week, style: const TextStyle(
-                                              fontSize: 18,
-                                              fontWeight: FontWeight.bold,
-                                              decoration: TextDecoration.underline,
-                                              color: Colors.white
-                                            ),),
-                                            const SizedBox(height: 10,),
-                                            Text(subjectsList[i].title, style: const TextStyle(
-                                              color: Colors.white,
-                                              fontStyle: FontStyle.italic
-                                            )),
-                                          ],
+                        height: MediaQuery.of(context).size.height * 0.7,
+                        child: gridView == 1 
+                          ? SingleChildScrollView(
+                            child: Column(
+                              children: List.generate(
+                                subjectsList.length, 
+                                (i) => Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      InkWell(
+                                        onTap: () {
+                                          if(subjectsList[i].cb != null) {
+                                            Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                builder: (context) => subjectsList[i].cb!() as Widget
+                                              )   
+                                            );
+                                          }
+                                        },
+                                        child: Container(
+                                          width: double.infinity,
+                                          decoration: BoxDecoration(
+                                            color: Colors.white24,
+                                            border: Border.all(color: Colors.white, width: 1),
+                                            borderRadius: const BorderRadius.all(Radius.circular(20))
+                                          ),
+                                          padding: const EdgeInsets.symmetric(
+                                            vertical: 6,
+                                            horizontal: 15
+                                          ),
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.min,
+                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                            children: [
+                                              Text(subjectsList[i].week, style: const TextStyle(
+                                                fontSize: 18,
+                                                fontWeight: FontWeight.bold,
+                                                decoration: TextDecoration.underline,
+                                                color: Colors.white
+                                              ),),
+                                              const SizedBox(height: 10,),
+                                              Text(subjectsList[i].title, style: const TextStyle(
+                                                color: Colors.white,
+                                                fontStyle: FontStyle.italic
+                                              ),
+                                                maxLines: 3,
+                                                overflow: TextOverflow.ellipsis,
+                                              ),
+                                              const SizedBox(height: 5,),
+                                              Text(formatDate(date: subjectsList[i].createdAt), style: const TextStyle(
+                                                fontSize: 12,
+                                                color: Colors.white
+                                              ),)
+                                            ],
+                                          ),
                                         ),
                                       ),
+                                      const SizedBox(height: 25,)
+                                    ],
+                                  ),
+                              ),
+                            ),
+                          )
+                          : GridView.count(
+                          primary: false,
+                          crossAxisSpacing: 15,
+                          padding: EdgeInsets.zero,
+                          mainAxisSpacing: 0,
+                          crossAxisCount: gridView,
+                          children: List.generate(
+                            subjectsList.length, 
+                            (i) => Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  InkWell(
+                                    onTap: () {
+                                      if(subjectsList[i].cb != null) {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => subjectsList[i].cb!() as Widget
+                                          )   
+                                        );
+                                      }
+                                    },
+                                    child: Container(
+                                      width: double.infinity,
+                                      decoration: BoxDecoration(
+                                        color: Colors.white24,
+                                        border: Border.all(color: Colors.white, width: 1),
+                                        borderRadius: const BorderRadius.all(Radius.circular(20))
+                                      ),
+                                      padding: const EdgeInsets.symmetric(
+                                        vertical: 6,
+                                        horizontal: 15
+                                      ),
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.min,
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          Text(subjectsList[i].week, style: const TextStyle(
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.bold,
+                                            decoration: TextDecoration.underline,
+                                            color: Colors.white
+                                          ),),
+                                          Visibility(
+                                            visible: gridView < 3,
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.min,
+                                              children: [
+                                                const SizedBox(height: 10,),
+                                                Text(subjectsList[i].title, style: const TextStyle(
+                                                  color: Colors.white,
+                                                  fontStyle: FontStyle.italic
+                                                ),
+                                                  maxLines: 3,
+                                                  overflow: TextOverflow.ellipsis,
+                                                ),
+                                                const SizedBox(height: 5,),
+                                                Text(formatDate(date: subjectsList[i].createdAt), style: const TextStyle(
+                                                  fontSize: 12,
+                                                  color: Colors.white
+                                                ),)
+                                              ],
+                                            ),
+                                          ),
+                                        ],
+                                      ),
                                     ),
-                                    const SizedBox(height: 25,)
-                                  ],
-                                ),
-                            ],
-                          ),
+                                  ),
+                                ],
+                              ),
+                          )
                         ),
                       ),
                     ],
