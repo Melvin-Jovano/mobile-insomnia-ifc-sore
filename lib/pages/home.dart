@@ -13,6 +13,7 @@ class HomePage extends StatefulWidget {
 class HomePageState extends State<HomePage> {
   var subjectsList = subjects;
   int gridView = 1;
+  bool sort = true;
 
   @override
   Widget build(BuildContext context) {
@@ -88,26 +89,45 @@ class HomePageState extends State<HomePage> {
                             fontSize: 22,
                             fontWeight: FontWeight.bold
                           ),),
-                          PopupMenuButton(
-                            itemBuilder: (context) => [
-                              PopupMenuItem(
-                                child: const Text('1 Grid'),
-                                onTap: () {
+                          Row(
+                            children: [
+                              Tooltip(
+                                message: "Sort",
+                                child: IconButton(
+                                  onPressed: () {
                                     setState(() {
-                                      gridView = 1;
+                                      sort = !sort;
+                                      sorting(sort);
                                     });
-                                },
+                                  }, 
+                                  icon: const Icon(
+                                    Icons.swap_vert,
+                                    color: Colors.white,
+                                  )
+                                ),
                               ),
-                              PopupMenuItem(
-                                child: const Text('2 Grid'),
-                                onTap: () {
-                                  setState(() {
-                                    gridView = 2;
-                                  });
-                                },
+                              PopupMenuButton(
+                                itemBuilder: (context) => [
+                                  PopupMenuItem(
+                                    child: const Text('1 Grid'),
+                                    onTap: () {
+                                        setState(() {
+                                          gridView = 1;
+                                        });
+                                    },
+                                  ),
+                                  PopupMenuItem(
+                                    child: const Text('2 Grid'),
+                                    onTap: () {
+                                      setState(() {
+                                        gridView = 2;
+                                      });
+                                    },
+                                  ),
+                                ],
+                                child: const Icon(Icons.grid_view_rounded, color: Colors.white)
                               ),
                             ],
-                            child: const Icon(Icons.grid_view_rounded, color: Colors.white)
                           )
                         ],
                       ),

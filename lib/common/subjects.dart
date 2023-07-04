@@ -95,3 +95,14 @@ final List<Subject> subjects = [
     title: 'Slider, Tooltips, dan Progress Indicator'
   )
 ];
+
+sorting(bool val){
+  if(val == true){
+    //Ascending
+    subjects.sort((a,b)=> a.createdAt.compareTo(b.createdAt));
+  }
+  else if(val == false){
+    //Descending
+    subjects.sort((b,a)=> a.createdAt.compareTo(b.createdAt));
+  }
+}
