@@ -139,6 +139,14 @@ class HomePageState extends State<HomePage> {
                                       });
                                     },
                                   ),
+                                  PopupMenuItem(
+                                    child: const Text('3 Grid'),
+                                    onTap: () {
+                                      setState(() {
+                                        gridView = 3;
+                                      });
+                                    },
+                                  ),
                                 ],
                                 child: const Icon(Icons.grid_view_rounded, color: Colors.white)
                               ),
