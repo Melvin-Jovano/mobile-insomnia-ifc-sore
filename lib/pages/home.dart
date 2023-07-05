@@ -13,7 +13,6 @@ class HomePage extends StatefulWidget {
 class HomePageState extends State<HomePage> {
   var subjectsList = subjects;
   int gridView = 1;
-  bool sort = true;
 
   @override
   Widget build(BuildContext context) {
@@ -91,20 +90,36 @@ class HomePageState extends State<HomePage> {
                           ),),
                           Row(
                             children: [
-                              Tooltip(
-                                message: "Sort",
-                                child: IconButton(
-                                  onPressed: () {
-                                    setState(() {
-                                      sort = !sort;
-                                      sorting(sort);
-                                    });
-                                  }, 
-                                  icon: const Icon(
-                                    Icons.swap_vert,
-                                    color: Colors.white,
+                              PopupMenuButton(
+                                itemBuilder: (context) => [
+                                  PopupMenuItem(
+                                    onTap: () {
+                                      setState(() {
+                                        sorting("ascending");
+                                      });
+                                    },
+                                    child: const ListTile(
+                                      leading: Icon(Icons.north),
+                                      title: Text("Ascending"),
+                                    )
+                                  ),
+
+                                  PopupMenuItem(
+                                    onTap: () {
+                                      setState(() {
+                                        sorting('descending');
+                                      });
+                                    },
+                                    child: const ListTile(
+                                      leading: Icon(Icons.south),
+                                      title: Text("Descending"),
+                                    )
                                   )
-                                ),
+                                ], 
+                                icon: const Icon(
+                                  Icons.sort,
+                                  color: Colors.white,
+                                )
                               ),
                               PopupMenuButton(
                                 itemBuilder: (context) => [

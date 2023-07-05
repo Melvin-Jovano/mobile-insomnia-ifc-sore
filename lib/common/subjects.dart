@@ -96,12 +96,12 @@ final List<Subject> subjects = [
   )
 ];
 
-sorting(bool val){
-  if(val == true){
+sorting(String val){
+  if(val == "ascending"){
     //Ascending
     subjects.sort((a,b)=> a.createdAt.compareTo(b.createdAt));
   }
-  else if(val == false){
+  else if(val == "descending"){
     //Descending
     subjects.sort((b,a)=> a.createdAt.compareTo(b.createdAt));
   }
