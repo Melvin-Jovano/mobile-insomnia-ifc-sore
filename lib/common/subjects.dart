@@ -4,6 +4,7 @@ import 'package:insomnia/pages/minggu12.dart';
 import 'package:insomnia/pages/minggu13.dart';
 import 'package:insomnia/pages/minggu2.dart';
 import 'package:insomnia/pages/minggu4.dart';
+import 'package:insomnia/pages/minggu5.dart';
 import 'package:insomnia/pages/minggu6.dart';
 import 'package:insomnia/pages/minggu7.dart';
 import 'package:insomnia/pages/minggu9.dart';
@@ -48,6 +49,7 @@ final List<Subject> subjects = [
     title: 'setState vs Provider'
   ),
   Subject(
+    cb: () => const MingguLima(),
     week: 'Minggu 5',
     createdAt: DateTime(2023, DateTime.april, 4),
     title: 'CheckBox, RadioButtons, Chips'
