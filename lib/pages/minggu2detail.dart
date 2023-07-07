@@ -95,22 +95,27 @@ class _MingguDuaDetailState extends State<MingguDuaDetail> {
                                   Icon(
                                     Icons.star,
                                     color: Colors.white,
+                                    size: 20,
                                   ),
                                   Icon(
                                     Icons.star,
                                     color: Colors.white,
+                                    size: 20,
                                   ),
                                   Icon(
                                     Icons.star,
                                     color: Colors.white,
+                                    size: 20,
                                   ),
                                   Icon(
                                     Icons.star,
                                     color: Colors.white,
+                                    size: 20,
                                   ),
                                   Icon(
                                     Icons.star,
                                     color: Colors.white,
+                                    size: 20,
                                   ),
                                 ],
                               )

@@ -40,12 +40,10 @@ class MyApp extends StatelessWidget {
             bodyMedium: TextStyle(
               fontFamily: 'Gaegu',
               fontSize: 16,
-              color: Colors.white
             ),
             titleMedium: TextStyle(
               fontFamily: 'Gaegu',
               fontSize: 20,
-              color: Colors.white
             ),
           ),
           radioTheme: RadioThemeData(
