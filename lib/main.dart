@@ -39,11 +39,13 @@ class MyApp extends StatelessWidget {
           textTheme: const TextTheme(
             bodyMedium: TextStyle(
               fontFamily: 'Gaegu',
-              fontSize: 16
+              fontSize: 16,
+              color: Colors.white
             ),
             titleMedium: TextStyle(
               fontFamily: 'Gaegu',
-              fontSize: 20
+              fontSize: 20,
+              color: Colors.white
             ),
           ),
           radioTheme: RadioThemeData(

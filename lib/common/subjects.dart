@@ -3,6 +3,7 @@ import 'package:insomnia/pages/minggu11.dart';
 import 'package:insomnia/pages/minggu12.dart';
 import 'package:insomnia/pages/minggu13.dart';
 import 'package:insomnia/pages/minggu2.dart';
+import 'package:insomnia/pages/minggu3.dart';
 import 'package:insomnia/pages/minggu4.dart';
 import 'package:insomnia/pages/minggu5.dart';
 import 'package:insomnia/pages/minggu6.dart';
@@ -38,6 +39,7 @@ final List<Subject> subjects = [
     title: 'Grid, Column, Row, Container dan Navigator'
   ),
   Subject(
+    cb: () => const MingguTiga(),
     week: 'Minggu 3',
     createdAt: DateTime(2023, DateTime.march, 21),
     title: 'Button & Textfield'
