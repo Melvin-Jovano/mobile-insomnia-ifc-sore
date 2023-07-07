@@ -51,7 +51,7 @@ class _MingguDuabelasDetailState extends State<MingguDuabelasDetail> {
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Expanded(flex: 1,child: const Text('Model:', style: TextStyle(
+                      const Expanded(flex: 1,child: Text('Model:', style: TextStyle(
                         color: Colors.white
                       ),)),
                       Expanded(flex: 2,child: Text(widget.data['model'], style: const TextStyle(
@@ -62,7 +62,7 @@ class _MingguDuabelasDetailState extends State<MingguDuabelasDetail> {
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Expanded(flex: 1,child: const Text('Developer:', style: TextStyle(
+                      const Expanded(flex: 1,child: Text('Developer:', style: TextStyle(
                         color: Colors.white
                       ),)),
                       Expanded(flex: 2,child: Text(widget.data['developer'], style: const TextStyle(
@@ -73,7 +73,7 @@ class _MingguDuabelasDetailState extends State<MingguDuabelasDetail> {
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Expanded(flex: 1,child: const Text('Price:', style: TextStyle(
+                      const Expanded(flex: 1,child: Text('Price:', style: TextStyle(
                         color: Colors.white
                       ),)),
                       Expanded(flex: 2,child: Text('Rp.${widget.data['price']}', style: const TextStyle(
@@ -84,7 +84,7 @@ class _MingguDuabelasDetailState extends State<MingguDuabelasDetail> {
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Expanded(flex: 1,child: const Text('Rating:', style: TextStyle(
+                      const Expanded(flex: 1,child: Text('Rating:', style: TextStyle(
                         color: Colors.white
                       ),)),
                       Expanded(flex: 2,child: Text(widget.data['rating'].toString(), style: const TextStyle(
@@ -95,7 +95,7 @@ class _MingguDuabelasDetailState extends State<MingguDuabelasDetail> {
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Expanded(flex: 1,child: const Text('Description:', style: TextStyle(
+                      const Expanded(flex: 1, child: Text('Description:', style: TextStyle(
                         color: Colors.white
                       ),)),
                       Expanded(flex: 2,child: Text(widget.data['desc'], style: const TextStyle(

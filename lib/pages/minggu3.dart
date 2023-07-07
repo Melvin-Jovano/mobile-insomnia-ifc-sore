@@ -31,7 +31,7 @@ class _MingguTigaState extends State<MingguTiga> {
         onPressed: () {
           Navigator.of(context).push(MaterialPageRoute(builder: (context) => const MingguTigaTodos()));
         },
-        backgroundColor: Colors.green,
+        backgroundColor: const Color(0xFF4CAF50),
         child: const Icon(Icons.navigation),
       ),
       body: Center(
@@ -68,10 +68,10 @@ class _MingguTigaState extends State<MingguTiga> {
                 ],
               ),
               const SizedBox(height: 30,),
-              Row(
-                children: const [
+              const Row(
+                children: [
                   Icon(Icons.list, color: Colors.white),
-                  const SizedBox(width: 10,),
+                  SizedBox(width: 10,),
                   Text('Keterangan: ')
                 ],
               ),
@@ -99,15 +99,15 @@ class _MingguTigaState extends State<MingguTiga> {
               
               const SizedBox(height: 30,),
               
-              Row(
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
+                children: [
                   Icon(Icons.calendar_month, color: Colors.white),
-                  const SizedBox(width: 10,),
+                  SizedBox(width: 10,),
                   Text('Tanggal Mulai'),
                   SizedBox(width: 40,),
                   Icon(Icons.calendar_month, color: Colors.white),
-                  const SizedBox(width: 10,),
+                  SizedBox(width: 10,),
                   Text('Tanggal Selesai'),
                 ],
               ),

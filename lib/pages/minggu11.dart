@@ -80,8 +80,8 @@ class _MingguSebelasState extends State<MingguSebelas> {
             children: [
               Visibility(
                 visible: data.isEmpty,
-                child: Column(
-                  children: const [
+                child: const Column(
+                  children: [
                     SizedBox(height: 30,),
                     Icon(Icons.warning, color: Colors.white),
                     SizedBox(height: 10,),

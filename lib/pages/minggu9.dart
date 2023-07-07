@@ -126,22 +126,22 @@ class _MingguSembilanState extends State<MingguSembilan> {
           endDrawer: Drawer(
             child: ListView(
               children: [
-                DrawerHeader(
-                  decoration: const BoxDecoration(color: Color(0xff001f2e)),
-                  padding: const EdgeInsets.all(15),
+                const DrawerHeader(
+                  decoration: BoxDecoration(color: Color(0xff001f2e)),
+                  padding: EdgeInsets.all(15),
                   child: Row(
                     children: [
-                      const CircleAvatar(
+                      CircleAvatar(
                         radius: 30,
                         backgroundImage: NetworkImage(
                           "https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1331&q=80"
                         ),
                       ),
-                      const Padding(padding: EdgeInsets.only(left: 10)),
+                      Padding(padding: EdgeInsets.only(left: 10)),
                       Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: const [
+                        children: [
                           Text(
                             "John Doe",
                             style: TextStyle(

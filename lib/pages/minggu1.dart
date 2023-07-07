@@ -74,9 +74,9 @@ class MingguSatu extends StatelessWidget {
                             topRight: Radius.circular(10)
                           )
                         ),
-                        child: Row(
+                        child: const Row(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: const [
+                          children: [
                             Icon(Icons.description_outlined, color: Colors.white,),
                             Padding(padding: EdgeInsets.only(right: 5)),
                             Text(

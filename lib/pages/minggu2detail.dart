@@ -80,10 +80,10 @@ class _MingguDuaDetailState extends State<MingguDuaDetail> {
                         crossAxisCount: 2,
                         childAspectRatio: 3,
                         children: [
-                          Column(
+                          const Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              const Text(
+                              Text(
                                 "Rating :",
                                 style: TextStyle(
                                   color: Colors.white,
@@ -91,7 +91,7 @@ class _MingguDuaDetailState extends State<MingguDuaDetail> {
                                 ),
                               ),
                               Row(
-                                children: const [
+                                children: [
                                   Icon(
                                     Icons.star,
                                     color: Colors.white,
