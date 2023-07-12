@@ -3,6 +3,7 @@ import 'package:insomnia/pages/minggu11.dart';
 import 'package:insomnia/pages/minggu12.dart';
 import 'package:insomnia/pages/minggu13.dart';
 import 'package:insomnia/pages/minggu14.dart';
+import 'package:insomnia/pages/minggu15.dart';
 import 'package:insomnia/pages/minggu2.dart';
 import 'package:insomnia/pages/minggu3.dart';
 import 'package:insomnia/pages/minggu4.dart';
@@ -104,6 +105,12 @@ final List<Subject> subjects = [
     week: 'Minggu 14', 
     createdAt: DateTime(2023, DateTime.june, 27),
     title: 'DatePicker dan TimePicker'
+  ),
+  Subject(
+    cb: () => const MingguLimaBelas(),
+    week: 'Minggu 15', 
+    createdAt: DateTime(2023, DateTime.july, 4),
+    title: 'Adding Package: ImagePicker, Carousel, dan WebView'
   )
 ];
 
