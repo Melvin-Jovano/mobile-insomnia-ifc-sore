@@ -6,7 +6,6 @@ class MingguTujuhProvider extends ChangeNotifier{
     "Anjing",
     "Kucing"
   ];
-
   final List _listAnjing = [
     {
       "nama" : "Alaskan Malamute",
