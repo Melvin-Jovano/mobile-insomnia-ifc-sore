@@ -70,7 +70,6 @@ class MingguTujuhProvider extends ChangeNotifier{
   ];
 
   late List _hewan = _listAnjing;
-
   List get listHewan => _hewan;
   List get listAnjing => _listAnjing;
   List get listKucing => _listKucing;
