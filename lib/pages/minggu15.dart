@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:video_player/video_player.dart';
 
 import 'minggu15webview.dart';
 
@@ -16,6 +17,22 @@ class MingguLimaBelas extends StatefulWidget {
 class _MingguLimaBelasState extends State<MingguLimaBelas> {
   XFile? img;
   List<XFile> imgs = [];
+  VideoPlayerController? _videoPlayerController;
+
+  loadVideoPlayer(File file) {
+    if(_videoPlayerController != null) {
+      _videoPlayerController!.dispose();
+    }
+    
+    _videoPlayerController = VideoPlayerController.file(file, videoPlayerOptions: VideoPlayerOptions(
+      mixWithOthers: true,
+    ));
+    _videoPlayerController!.initialize().then((value) {
+      setState(() {
+        _videoPlayerController!.play();
+      });
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -82,6 +99,11 @@ class _MingguLimaBelasState extends State<MingguLimaBelas> {
                 ),
                 child: Image.file(File(img!.path))
               ),
+              if(_videoPlayerController != null)
+              AspectRatio(
+                aspectRatio: _videoPlayerController!.value.aspectRatio,
+                child: VideoPlayer(_videoPlayerController!),
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -131,6 +153,16 @@ class _MingguLimaBelasState extends State<MingguLimaBelas> {
                       });
                     }, 
                     child: const Text('Camera')
+                  ),
+                  ElevatedButton(
+                    onPressed: () async {
+                      ImagePicker picker = ImagePicker();
+                      final file = await picker.pickVideo(source: ImageSource.gallery);
+                      setState(() {
+                        loadVideoPlayer(File(file!.path));
+                      });
+                    }, 
+                    child: const Text('Video')
                   ),
                 ],
               ),
